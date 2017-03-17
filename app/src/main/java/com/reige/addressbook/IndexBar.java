@@ -19,7 +19,7 @@ public class IndexBar extends View {
 
     private OnSlideListener onSlideListener;
     private String[] arr = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N",
-            "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z","#"};
+            "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "#"};
     private Paint mPaint;
     private int mWidth;
     private float mBoxHeight;
@@ -49,6 +49,7 @@ public class IndexBar extends View {
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mPaint.setTextSize(30);
         mPaint.setColor(Color.BLUE);
+        //因为默认的文字绘制锚点在文字的左下角，这样会使文字的左边在一条直线上 因为字母的宽度不同会使绘制出的字母看上去比较乱 这个方法可以将锚点设置到文字底部中心 从而避免这个问题
         mPaint.setTextAlign(Paint.Align.CENTER);
     }
 
@@ -66,7 +67,7 @@ public class IndexBar extends View {
             float textHeight = getTextHeight(arr[i]);
             float x = mWidth / 2;
             float y = (1 + i) * mBoxHeight;
-            mPaint.setColor(lastIndex==i?Color.RED:Color.BLUE);
+            mPaint.setColor(lastIndex == i ? Color.RED : Color.BLUE);
 
 
             canvas.drawText(arr[i], x, y, mPaint);
@@ -89,7 +90,7 @@ public class IndexBar extends View {
                         Log.e("index", "index:::" + index);
 
                         //选择的letter变化 回调
-                        if(onSlideListener!=null){
+                        if (onSlideListener != null) {
                             onSlideListener.onSlide(arr[index]);
                         }
 
@@ -119,15 +120,16 @@ public class IndexBar extends View {
     /**
      * 设置监听的方法
      */
-    public interface OnSlideListener{
+    public interface OnSlideListener {
         void onSlide(String letter);
     }
 
     /**
      * 滑动监听
+     *
      * @param osl
      */
-    public void setOnSlideListener(OnSlideListener osl){
+    public void setOnSlideListener(OnSlideListener osl) {
         this.onSlideListener = osl;
     }
 }
