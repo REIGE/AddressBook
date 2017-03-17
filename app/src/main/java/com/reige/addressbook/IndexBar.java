@@ -19,7 +19,7 @@ public class IndexBar extends View {
 
     private OnSlideListener onSlideListener;
     private String[] arr = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N",
-            "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
+            "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z","#"};
     private Paint mPaint;
     private int mWidth;
     private float mBoxHeight;
@@ -66,6 +66,9 @@ public class IndexBar extends View {
             float textHeight = getTextHeight(arr[i]);
             float x = mWidth / 2;
             float y = (1 + i) * mBoxHeight;
+            mPaint.setColor(lastIndex==i?Color.RED:Color.BLUE);
+
+
             canvas.drawText(arr[i], x, y, mPaint);
         }
     }
@@ -86,7 +89,10 @@ public class IndexBar extends View {
                         Log.e("index", "index:::" + index);
 
                         //选择的letter变化 回调
-                        onSlideListener.onSlide(arr[index]);
+                        if(onSlideListener!=null){
+                            onSlideListener.onSlide(arr[index]);
+                        }
+
                     }
                 }
                 lastIndex = index;

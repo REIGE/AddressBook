@@ -8,8 +8,9 @@
     tools:context="com.reige.addressbook.MainActivity">
 
     <com.reige.addressbook.IndexBar
+        android:layout_alignParentRight="true"
         android:layout_width="20dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"/>
 </RelativeLayout>
