@@ -7,6 +7,14 @@
     android:layout_height="match_parent"
     tools:context="com.reige.addressbook.MainActivity">
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_data"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v7.widget.RecyclerView>
+
+
     <com.reige.addressbook.IndexBar
         android:layout_alignParentRight="true"
         android:layout_width="20dp"
