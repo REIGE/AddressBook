@@ -135,8 +135,8 @@ public class IndicatorDecoration extends RecyclerView.ItemDecoration {
 
         boolean flag = false;//定义一个flag，Canvas是否位移过的标志
         if (!mData.get(firstPos).index.equals(mData.get(firstPos + 1 ).index)) {
-            Log.d("reige", "onDrawOver() called with: c = [" + child.getTop());
             if (child.getTop() + child.getHeight() < mTitleHeight) {
+                //在canvas 移动前先保存他的状态
                 c.save();
                 flag = true;
                 c.translate(0, child.getTop() + child.getHeight() - mTitleHeight);
@@ -158,8 +158,10 @@ public class IndicatorDecoration extends RecyclerView.ItemDecoration {
         c.drawText(mData.get(firstPos).index, child.getPaddingLeft(), mTitleHeight - mTitleHeight
                 / 2 + textHeight / 2, mPaint);
 
-        if(flag)
+        //如果canvas 移动过 回到他保存前的状态
+        if(flag){
             c.restore();
+        }
 
     }
 
