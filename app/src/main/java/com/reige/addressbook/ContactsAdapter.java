@@ -34,15 +34,16 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, final int position) {
+    public void onBindViewHolder(final ViewHolder holder,  int position) {
         ContactsBean bean = mData.get(position);
         holder.contact.setText(bean.name);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(mContext, "position" + position, Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext, "position" + holder.getAdapterPosition(), Toast.LENGTH_SHORT).show();
             }
         });
+
     }
 
     @Override
