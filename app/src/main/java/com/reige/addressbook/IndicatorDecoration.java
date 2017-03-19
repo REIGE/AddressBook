@@ -143,6 +143,8 @@ public class IndicatorDecoration extends RecyclerView.ItemDecoration {
             }
 
         }
+
+        //mPaint.setColor(mContext.getResources().getColor(R.color.md_blue_300));
         mPaint.setColor(mContext.getResources().getColor(R.color.md_amber_900));
 
 

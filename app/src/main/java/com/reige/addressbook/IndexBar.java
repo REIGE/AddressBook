@@ -65,8 +65,9 @@ public class IndexBar extends View {
         super.onDraw(canvas);
         for (int i = 0; i < arr.length; i++) {
             float textHeight = getTextHeight(arr[i]);
+            float textWidth = getTextWidth(arr[i]);
             float x = mWidth / 2;
-            float y = (1 + i) * mBoxHeight;
+            float y =mBoxHeight/2+textWidth/2+ i* mBoxHeight;
             mPaint.setColor(lastIndex == i ? Color.RED : Color.BLUE);
 
 
@@ -115,6 +116,11 @@ public class IndexBar extends View {
         Rect rect = new Rect();
         mPaint.getTextBounds(text, 0, text.length(), rect);
         return rect.height();
+    }
+    private float getTextWidth(String text) {
+        Rect rect = new Rect();
+        mPaint.getTextBounds(text, 0, text.length(), rect);
+        return rect.width();
     }
 
     /**
